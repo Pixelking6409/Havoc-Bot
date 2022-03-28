@@ -10,6 +10,7 @@
   "author": "Pixel",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/opus": "^0.7.0",
     "discord.js": "^13.6.0",
     "minecraft-server-util": "^5.2.9",
     "discord-music-player": "^8.3.1"
