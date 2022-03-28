@@ -33,6 +33,7 @@ client.on('messageCreate', async (message) => {
     const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
     const command = args.shift();
     let guildQueue = client.player.getQueue(message.guild.id);
+
     if (message.content.charAt(0) != settings.prefix) return;
 
       if (command === 'play') {
