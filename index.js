@@ -185,7 +185,7 @@ client.on('messageCreate', async (message) => {
             .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
             .setTimestamp()
             
-          if (!dumbarry) return message.channel.send(offlineEmbed)
+          if (!dumbarry) return message.channel.send({embeds: [offlineEmbed]})
           
           let dumbEmbed = new MessageEmbed()
             .setTitle("Mincraft Players Online")
