@@ -178,7 +178,14 @@ client.on('messageCreate', async (message) => {
           let dumbarry = result.players.sample
           console.log(dumbarry)
 
-          if (!dumbarry) return message.channel.send("No one is online")
+          let offlineEmbed = new MessageEmbed()
+            .setTitle("Mincraft Players Online")
+            .setDescription("🔴 No one is online")
+            .setColor("RED")
+            .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
+            .setTimestamp()
+            
+          if (!dumbarry) return message.channel.send(offlineEmbed)
           
           let dumbEmbed = new MessageEmbed()
             .setTitle("Mincraft Players Online")
@@ -187,7 +194,7 @@ client.on('messageCreate', async (message) => {
             .setTimestamp()
           let string = '';
           for (let player of dumbarry) {
-            string += `<:green:958118589745987604> **${player.name}** is online!\n`
+            string += `🟢 **${player.name}** is online!\n`
           }
           dumbEmbed.setDescription(string);
           message.channel.send({embeds: [dumbEmbed]})
