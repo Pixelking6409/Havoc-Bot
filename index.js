@@ -5,23 +5,20 @@ const options = {
     timeout: 1000 * 5,
     enableSRV: true
 };
-
-client.player = player;
-
+const client = new Client({
+    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES]
+});
 const { Player } = require("discord-music-player");
 const player = new Player(client, {
     leaveOnEmpty: false,
     leaveOnEnd: false,
 });
-
-const client = new Client({
-    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES]
-});
-
 const settings = {
     prefix: '!',
     token: process.env.TOKEN,
 };
+
+client.player = player;
 
 client.on("ready", () => {
     console.log("Bot Ready!");
