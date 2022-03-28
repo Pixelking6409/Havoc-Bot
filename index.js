@@ -187,7 +187,7 @@ client.on('messageCreate', async (message) => {
             .setTimestamp()
           let string = '';
           for (let player of dumbarry) {
-            string += `<:Green:824879290331168798>**${player.name}** is online!\n`
+            string += `<:Green:824879290331168798> **${player.name}** is online!\n`
           }
           dumbEmbed.setDescription(string);
           message.channel.send({embeds: [dumbEmbed]})
