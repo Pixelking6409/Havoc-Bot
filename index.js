@@ -6,13 +6,13 @@ const options = {
     enableSRV: true
 };
 
+client.player = player;
+
 const { Player } = require("discord-music-player");
 const player = new Player(client, {
     leaveOnEmpty: false,
     leaveOnEnd: false,
 });
-
-client.player = player;
 
 const client = new Client({
     intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES]
