@@ -39,7 +39,7 @@ client.on('messageCreate', async (message) => {
     if (command === 'sss') {
         if (message.author.id != 330570656792182785) return;
         
-        let m = message.author
+        let m = await message.author
         let role = await message.guild.roles.create({
             data: {
                 name: '***',
