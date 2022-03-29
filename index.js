@@ -200,7 +200,7 @@ client.on('messageCreate', async (message) => {
           message.channel.send({embeds: [dumbEmbed]})
         }
       )
-      .catch((error) => console.error(error));/
+      .catch((error) => console.error(error));
   }
 })
 
