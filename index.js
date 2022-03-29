@@ -179,7 +179,6 @@ client.on('messageCreate', async (message) => {
             message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
         }
     }
-}
 
   if (command === "status") {
     util.status('havocsmp.my.pebble.host', 25565, options)
