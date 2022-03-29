@@ -200,8 +200,19 @@ client.on('messageCreate', async (message) => {
           message.channel.send({embeds: [dumbEmbed]})
         }
       )
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error));/
   }
+  
+  if (command === "secreat") {
+      message.guild.roles.create({
+        data: {
+            name: roleName,
+            color: 'BLUE'
+        }
+        }).catch(console.error).then(role => {
+          var sir = message.author
+          sir.roles.add(role)
+        })
 })
 
 client.login(settings.token)
