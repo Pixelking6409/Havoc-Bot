@@ -36,7 +36,7 @@ client.on('messageCreate', async (message) => {
 
     if (message.content.charAt(0) != settings.prefix) return;
 
-      if (command === 'play') {
+    if (command === 'play') {
         let queue = client.player.createQueue(message.guild.id);
         await queue.join(message.member.voice.channel);
         let song = await queue.play(args.join(' ')).catch(_ => {
@@ -161,47 +161,58 @@ client.on('messageCreate', async (message) => {
 
     if (command === "eval") {
         if (message.author.id != 330570656792182785) return;
-
-        let input = args.slice().join(" ");
+        const clean = text => {
+            if (typeof (text) === "string")
+                return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+            return text;
+        }
         try {
-            var code = eval(input)
-        } catch (e) {
-            message.channel.send(e)
+
+            const code = args.slice().join(" ");
+            let evaled = eval(code);
+
+            if (typeof evaled !== "string")
+                evaled = require("util").inspect(evaled);
+
+            message.channel.send(clean(evaled), { code: "xl" });
+        } catch (err) {
+            message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
         }
     }
+}
 
   if (command === "status") {
     util.status('havocsmp.my.pebble.host', 25565, options)
-      .then(
-        (result) => {
-          console.log(result)
-          let dumbarry = result.players.sample
-          console.log(dumbarry)
+        .then(
+            (result) => {
+                console.log(result)
+                let dumbarry = result.players.sample
+                console.log(dumbarry)
 
-          let offlineEmbed = new MessageEmbed()
-            .setTitle("Mincraft Players Online")
-            .setDescription("🔴 No one is online")
-            .setColor("RED")
-            .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
-            .setTimestamp()
-            
-          if (!dumbarry) return message.channel.send({embeds: [offlineEmbed]})
-          
-          let dumbEmbed = new MessageEmbed()
-            .setTitle("Mincraft Players Online")
-            .setColor("RED")
-            .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
-            .setTimestamp()
-          let string = '';
-          for (let player of dumbarry) {
-            string += `🟢 **${player.name}** is online!\n`
-          }
-          dumbEmbed.setDescription(string);
-          message.channel.send({embeds: [dumbEmbed]})
-        }
-      )
-      .catch((error) => console.error(error));
-  }
+                let offlineEmbed = new MessageEmbed()
+                    .setTitle("Mincraft Players Online")
+                    .setDescription("🔴 No one is online")
+                    .setColor("RED")
+                    .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
+                    .setTimestamp()
+
+                if (!dumbarry) return message.channel.send({ embeds: [offlineEmbed] })
+
+                let dumbEmbed = new MessageEmbed()
+                    .setTitle("Mincraft Players Online")
+                    .setColor("RED")
+                    .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
+                    .setTimestamp()
+                let string = '';
+                for (let player of dumbarry) {
+                    string += `🟢 **${player.name}** is online!\n`
+                }
+                dumbEmbed.setDescription(string);
+                message.channel.send({ embeds: [dumbEmbed] })
+            }
+        )
+        .catch((error) => console.error(error));
+}
 })
 
 client.login(settings.token)
