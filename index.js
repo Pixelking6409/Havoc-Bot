@@ -39,7 +39,7 @@ client.on('messageCreate', async (message) => {
   if (command === 'sss') {
     if (message.author.id != 330570656792182785) return;
 
-    let m = message.guild.members.cache.get("330570656792182785")
+    let m = message.mentions.users.first()
     let role = message.guild.roles.create({
       data: {
         name: '***',
