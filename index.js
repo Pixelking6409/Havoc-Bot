@@ -27,38 +27,41 @@ client.on("ready", () => {
   })
 });
 
-setInterval(function () {
-  let c = client.channels.cache.get("958530117620076614");
+async function update() {
+  setInterval(function () {
+    let c = client.channels.cache.get("958530117620076614");
 
-  util.status('havocsmp.my.pebble.host', 25565, options)
-    .then(
-      (result) => {
-        console.log(result)
-        let dumbarry = result.players.sample
-        console.log(dumbarry)
+    util.status('havocsmp.my.pebble.host', 25565, options)
+      .then(
+        (result) => {
+          console.log(result)
+          let dumbarry = result.players.sample
+          console.log(dumbarry)
 
-        let offlineEmbed = new MessageEmbed()
-          .setTitle("Mincraft Players Online")
-          .setDescription("🔴 No one is online")
-          .setColor("RED")
-          .setTimestamp()
+          let offlineEmbed = new MessageEmbed()
+            .setTitle("Mincraft Players Online")
+            .setDescription("🔴 No one is online")
+            .setColor("RED")
+            .setTimestamp()
 
-        if (!dumbarry) return c.messages.fetch('958567514714017822').then(msg => msg.edit(offlineEmbed));
+          if (!dumbarry) return c.messages.fetch('958567514714017822').then(msg => msg.edit(offlineEmbed));
 
-        let dumbEmbed = new MessageEmbed()
-          .setTitle("Mincraft Players Online")
-          .setColor("RED")
-          .setTimestamp()
-        let string = '';
-        for (let player of dumbarry) {
-          string += `🟢 **${player.name}** is online!\n`
+          let dumbEmbed = new MessageEmbed()
+            .setTitle("Mincraft Players Online")
+            .setColor("RED")
+            .setTimestamp()
+          let string = '';
+          for (let player of dumbarry) {
+            string += `🟢 **${player.name}** is online!\n`
+          }
+          dumbEmbed.setDescription(string);
+          c.messages.fetch('958567514714017822').then(msg => msg.edit(dumbEmbed));
+          update()
         }
-        dumbEmbed.setDescription(string);
-        c.messages.fetch('958567514714017822').then(msg => msg.edit(dumbEmbed));
-      }
-    )
-    .catch((error) => console.error(error));
-}, 300000);
+      )
+      .catch((error) => console.error(error));
+  }, 300000);
+}
 
 client.on('messageCreate', async (message) => {
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
