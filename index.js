@@ -41,7 +41,6 @@ setInterval(function () {
           .setTitle("Mincraft Players Online")
           .setDescription("🔴 No one is online")
           .setColor("RED")
-          .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
           .setTimestamp()
 
         if (!dumbarry) return c.messages.fetch('958530254715121674').then(msg => msg.edit({ embeds: offlineEmbed }));
@@ -49,7 +48,6 @@ setInterval(function () {
         let dumbEmbed = new MessageEmbed()
           .setTitle("Mincraft Players Online")
           .setColor("RED")
-          .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
           .setTimestamp()
         let string = '';
         for (let player of dumbarry) {
