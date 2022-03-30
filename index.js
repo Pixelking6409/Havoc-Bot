@@ -27,8 +27,9 @@ client.on("ready", () => {
   })
 });
 
+let baba = 1
 
-while (true) {
+while (baba == 1) {
   setInterval(function () {
     let c = client.channels.cache.get("958530117620076614");
 
