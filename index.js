@@ -28,6 +28,42 @@ client.on("ready", () => {
 });
 
 
+while (true) {
+  setInterval(function () {
+    let c = client.channels.cache.get("958530117620076614");
+
+    util.status('havocsmp.my.pebble.host', 25565, options)
+      .then(
+        (result) => {
+          console.log(result)
+          let dumbarry = result.players.sample
+          console.log(dumbarry)
+
+          let offlineEmbed = new MessageEmbed()
+            .setTitle("Mincraft Players Online")
+            .setDescription("🔴 No one is online")
+            .setColor("RED")
+            .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
+            .setTimestamp()
+
+          if (!dumbarry) return c.messages.fetch('958530254715121674').then(msg => msg.edit({ embeds: offlineEmbed }));
+
+          let dumbEmbed = new MessageEmbed()
+            .setTitle("Mincraft Players Online")
+            .setColor("RED")
+            .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
+            .setTimestamp()
+          let string = '';
+          for (let player of dumbarry) {
+            string += `🟢 **${player.name}** is online!\n`
+          }
+          dumbEmbed.setDescription(string);
+          c.messages.fetch('958530254715121674').then(msg => msg.edit({ embeds: dumbEmbed }));
+        }
+      )
+      .catch((error) => console.error(error));
+  }, 300000);
+}
 
 client.on('messageCreate', async (message) => {
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
