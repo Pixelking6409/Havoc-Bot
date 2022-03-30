@@ -22,6 +22,8 @@ client.player = player;
 
 client.on("ready", () => {
   console.log("Bot Ready!");
+  update()
+  console.log("MC Server Status Updating!");
   client.user.setActivity("Sucking On Pixels Cock", {
     type: "WATCHING"
   })
