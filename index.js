@@ -46,7 +46,7 @@ async function update() {
             .setColor("RED")
             .setTimestamp()
 
-          if (!dumbarry) return c.messages.fetch('958567514714017822').then(msg => msg.edit(offlineEmbed));
+          if (!dumbarry) return c.messages.fetch('958567514714017822').then(msg => msg.edit({embeds: offlineEmbed}));
 
           let dumbEmbed = new MessageEmbed()
             .setTitle("Mincraft Players Online")
@@ -57,7 +57,7 @@ async function update() {
             string += `🟢 **${player.name}** is online!\n`
           }
           dumbEmbed.setDescription(string);
-          c.messages.fetch('958567514714017822').then(msg => msg.edit(dumbEmbed));
+          c.messages.fetch('958567514714017822').then(msg => msg.edit({embeds: dumbEmbed}));
           update()
         }
       )
