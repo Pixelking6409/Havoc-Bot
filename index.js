@@ -1,6 +1,8 @@
 const { Client, Intents, MessageEmbed } = require('discord.js');
 const { RepeatMode } = require('discord-music-player');
+const furmotion = require("furmotion");
 const util = require('minecraft-server-util');
+
 const options = {
   timeout: 1000 * 5,
   enableSRV: true
@@ -266,6 +268,18 @@ client.on('messageCreate', async (message) => {
         }
       )
       .catch((error) => console.error(error));
+  }
+
+  if (command === "furryporn") {
+    let porn = new MessageEmbed()
+      .setTitle("Furry Porn")
+      .setDescription(`${message.author.username} you fucking werido...`)
+      .setImage(furmotion.nsfw())
+      .setColor("RED")
+      .setFooter(`Requested by ${message.author.username}. Werido...`, message.author.displayAvatarURL())
+      .setTimestamp()
+
+    message.channel.send({ embeds: [porn] })
   }
 })
 
