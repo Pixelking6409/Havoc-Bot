@@ -207,6 +207,14 @@ client.on('messageCreate', async (message) => {
     guildQueue.setPaused(false);
   }
 
+  if (command === 'nigger' or 'nigga' ) {
+    const niga = 0
+     while niga != 100 {
+       message.channel.send("nigger")
+       niga += 1
+       
+     }
+  }
   if (command === 'remove') {
     guildQueue.remove(parseInt(args[0]));
   }
