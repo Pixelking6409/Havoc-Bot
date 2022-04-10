@@ -214,7 +214,7 @@ client.on('messageCreate', async (message) => {
     print("yes its cringe dont ask lmao")
     
   }
-  if (command === "nigger" || "nigga") {
+  if (command === "nigger") {
     for (let i = 0; i < 10; i++) {
         message.channel.send("nigger" + (i))
     }
