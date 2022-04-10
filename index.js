@@ -235,13 +235,10 @@ client.on('messageCreate', async (message) => {
     guildQueue.remove(parseInt(args[0]));
   }
 
-  if (command === 'help') {
-    message.channel.send("Dm or ping pixel cant be botherd to make this command.")
-  }
 
   if (commands === 'commands' ) {
     message.channel.send("**Here are a list of commands**")
-    message.channel.send("p, play, playlist, queue, skip, stop, leave, fuckoff, loop, stoploop, queueloop, seek, clearqueue, shuffle, volume, v, nowplaying, np, pause, resume, newdabz, remove, help, commands")
+    message.channel.send("p, play, playlist, queue, skip, stop, leave, fuckoff, loop, stoploop, queueloop, seek, clearqueue, shuffle, volume, v, nowplaying, np, pause, resume, newdabz, remove, commands")
     message.channel.send("If you need of think that there should be more commands they ping, PixelIsGarb#8914, or newdabz#5027 !")
   }
   if (command === "eval") {
