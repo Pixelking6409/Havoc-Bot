@@ -48,7 +48,7 @@ async function update() {
             .setColor("RED")
             .setTimestamp()
 
-          if (!dumbarry) return c.messages.fetch('958567514714017822').then(msg => msg.edit({embeds: [offlineEmbed]}));
+          if (!dumbarry) return c.messages.fetch('958567514714017822').then(msg => msg.edit({ embeds: [offlineEmbed] }));
 
           let dumbEmbed = new MessageEmbed()
             .setTitle("Mincraft Players Online")
@@ -59,24 +59,13 @@ async function update() {
             string += `🟢 **${player.name}** is online!\n`
           }
           dumbEmbed.setDescription(string);
-          c.messages.fetch('958567514714017822').then(msg => msg.edit({embeds: [dumbEmbed]}));
+          c.messages.fetch('958567514714017822').then(msg => msg.edit({ embeds: [dumbEmbed] }));
           update()
         }
       )
       .catch((error) => console.error(error));
   }, 300000);
 }
-
-if (command == 'ban') {
-  if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send('Ha, loser trying to use a command that you cant use eah?!! lol')
-   const target = message.mentions.user.first()
-    if (!target) {
-     channel.message.send("Please mention a user")
-  } else {
-     target.ban()
-      message.channel.send(`${target.username} been banned.`)
-        }
-    }
 
 client.on('messageCreate', async (message) => {
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
@@ -102,6 +91,17 @@ client.on('messageCreate', async (message) => {
       console.log("Epic it dont work")
       console.log(err)
     });
+  }
+
+  if (command === 'ban') {
+    if (!message.author.hasPermission("BAN_MEMBERS")) return message.channel.send('Ha, loser trying to use a command that you cant use eah?!! lol')
+    let target = message.mentions.user.first()
+    if (!target) {
+      channel.message.send("Please mention a user")
+    } else {
+      target.ban()
+      message.channel.send(`${target.username} been banned.`)
+    }
   }
 
   if (command === 'play') {
@@ -141,12 +141,12 @@ client.on('messageCreate', async (message) => {
         queue.stop();
     });
   }
-  
+
   if (command === 'skip') {
     guildQueue.skip();
     message.channel.send("Song skipped")
   }
-  
+
   if (command === 'stop') {
     guildQueue.stop();
   }
@@ -240,14 +240,14 @@ client.on('messageCreate', async (message) => {
     message.channel.send("the name newdabz was created in 2017 on roblox.com")
     message.channel.send("the name means (keep in mind that dabing was a 2017 meme), every day each dab would be the a new dab, hence the name 'newdabz'.")
     message.channel.send("yes its cringe dont ask lmao")
-    
+
   }
   if (command === 'remove') {
     guildQueue.remove(parseInt(args[0]));
   }
 
 
-  if (commands === 'commands' ) {
+  if (commands === 'commands') {
     message.channel.send("**Here are a list of commands**")
     message.channel.send("p, play, playlist, queue, skip, stop, leave, fuckoff, loop, stoploop, queueloop, seek, clearqueue, shuffle, volume, v, nowplaying, np, pause, resume, newdabz, remove, commands")
     message.channel.send("If you need of think that there should be more commands they ping, PixelIsGarb#8914, or newdabz#5027 !")
@@ -305,9 +305,6 @@ client.on('messageCreate', async (message) => {
       )
       .catch((error) => console.error(error));
   }
-
-
-  }
-})
+});
 
 client.login(settings.token)
