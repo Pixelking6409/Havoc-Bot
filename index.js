@@ -94,7 +94,7 @@ client.on('messageCreate', async (message) => {
   }
 
   if (command === 'ban') {
-    if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send('Ha, loser trying to use a command that you cant use eah?!! lol')
+    if (!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send('Ha, loser trying to use a command that you cant use eah?!! lol');
     let target = message.mentions.user.first()
     if (!target) {
       message.channel.send("Please mention a user")
@@ -253,7 +253,7 @@ client.on('messageCreate', async (message) => {
     message.channel.send("If you need of think that there should be more commands they ping, PixelIsGarb#8914, or newdabz#5027 !")
   }
 
-  
+
   if (command === "eval") {
     if (message.author.id != 330570656792182785) return;
     const clean = text => {
