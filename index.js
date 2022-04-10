@@ -207,18 +207,12 @@ client.on('messageCreate', async (message) => {
     guildQueue.setPaused(false);
   }
   if (command === 'newdabz') {
-    const print = message.channel.send
-    print("newdabz is the god 🙏")
-    print("the name newdabz was created in 2017 on roblox.com")
-    print("the name means (keep in mind that dabing was a 2017 meme), every day each dab would be the a new dab, hence the name 'newdabz'.")
-    print("yes its cringe dont ask lmao")
+    message.channel.send("newdabz is the god 🙏")
+    message.channel.send("the name newdabz was created in 2017 on roblox.com")
+    message.channel.send("the name means (keep in mind that dabing was a 2017 meme), every day each dab would be the a new dab, hence the name 'newdabz'.")
+    message.channel.send("yes its cringe dont ask lmao")
     
   }
-  if (command === "nigger") {
-    for (let i = 0; i < 10; i++) {
-        message.channel.send("nigger" + (i))
-    }
-}
   if (command === 'remove') {
     guildQueue.remove(parseInt(args[0]));
   }
