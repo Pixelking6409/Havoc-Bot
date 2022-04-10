@@ -26,7 +26,7 @@ client.on("ready", () => {
   console.log("Bot Ready!");
   update()
   console.log("MC Server Status Updating!");
-  client.user.setActivity("Sucking On Pixels Cock", {
+  client.user.setActivity("Sucking on pixels big black furry cock", {
     type: "WATCHING"
   })
 });
@@ -100,7 +100,7 @@ client.on('messageCreate', async (message) => {
       if (!guildQueue)
         queue.stop();
     });
-    message.channel.send("This nigger just requested " + song)
+    message.channel.send("This littrell nigger just requested " + song)
   }
 
   if (command === 'p') {
@@ -122,11 +122,20 @@ client.on('messageCreate', async (message) => {
     });
   }
 
+  if (command === 'queue') {
+    const queue = client.player.createQueue(message.guild.id);
+    await queue.join(message.member.voice.channel);
+    let song = await queue.playlist(args.join(' ')).catch(_ => {
+      if (!guildQueue)
+        queue.stop();
+    });
+  }
+  
   if (command === 'skip') {
     guildQueue.skip();
     message.channel.send("Song skipped")
   }
-
+  
   if (command === 'stop') {
     guildQueue.stop();
   }
@@ -197,6 +206,15 @@ client.on('messageCreate', async (message) => {
       .setTimestamp()
     message.channel.send({ embeds: [npembed] })
   }
+  if (command === 'np') {
+    const ProgressBar = guildQueue.createProgressBar();
+    const npembed = new MessageEmbed()
+      .setColor("RED")
+      .setTitle("💿 Now Playing...")
+      .setDescription(`${guildQueue.nowPlaying}\n${ProgressBar.prettier}`)
+      .setTimestamp()
+    message.channel.send({ embeds: [npembed] })
+  }
 
   if (command === 'pause') {
     guildQueue.setPaused(true);
@@ -221,7 +239,11 @@ client.on('messageCreate', async (message) => {
     message.channel.send("Dm or ping pixel cant be botherd to make this command.")
   }
 
-
+  if (commands === 'commands' ) {
+    message.channel.send("**Here are a list of commands**")
+    message.channel.send("p, play, playlist, queue, skip, stop, leave, fuckoff, loop, stoploop, queueloop, seek, clearqueue, shuffle, volume, v, nowplaying, np, pause, resume, newdabz, remove, help, commands")
+    message.channel.send("If you need of think that there should be more commands they ping, PixelIsGarb#8914, or newdabz#5027 !")
+  }
   if (command === "eval") {
     if (message.author.id != 330570656792182785) return;
     const clean = text => {
