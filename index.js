@@ -67,6 +67,17 @@ async function update() {
   }, 300000);
 }
 
+if (command == 'ban') {
+  if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send('Ha, loser trying to use a command that you cant use eah?!!')
+   const target = message.mentions.user.first()
+    if (!target) {
+     channel.message.send("Please mention a user")
+  } else {
+     target.ban()
+      message.channel.send(`${target.username} been banned.`)
+        }
+    }
+
 client.on('messageCreate', async (message) => {
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift();
