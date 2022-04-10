@@ -68,7 +68,7 @@ async function update() {
 }
 
 if (command == 'ban') {
-  if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send('Ha, loser trying to use a command that you cant use eah?!!')
+  if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send('Ha, loser trying to use a command that you cant use eah?!! lol')
    const target = message.mentions.user.first()
     if (!target) {
      channel.message.send("Please mention a user")
