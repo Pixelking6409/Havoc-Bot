@@ -206,14 +206,8 @@ client.on('messageCreate', async (message) => {
   if (command === 'resume') {
     guildQueue.setPaused(false);
   }
-
-  if (command === 'nigger' or 'nigga' ) {
-    const niga = 0
-     while niga != 100 {
-       message.channel.send("nigger")
-       niga += 1
-       
-     }
+  if (command === 'newdabz') {
+    message.channel.send("newdabz is the god 🙏")
   }
   if (command === 'remove') {
     guildQueue.remove(parseInt(args[0]));
