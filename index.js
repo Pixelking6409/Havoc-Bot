@@ -247,11 +247,13 @@ client.on('messageCreate', async (message) => {
   }
 
 
-  if (commands === 'commands') {
+  if (command === 'commands') {
     message.channel.send("**Here are a list of commands**")
     message.channel.send("p, play, playlist, queue, skip, stop, leave, fuckoff, loop, stoploop, queueloop, seek, clearqueue, shuffle, volume, v, nowplaying, np, pause, resume, newdabz, remove, commands")
     message.channel.send("If you need of think that there should be more commands they ping, PixelIsGarb#8914, or newdabz#5027 !")
   }
+
+  
   if (command === "eval") {
     if (message.author.id != 330570656792182785) return;
     const clean = text => {
