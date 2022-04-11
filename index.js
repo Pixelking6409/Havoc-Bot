@@ -96,7 +96,7 @@ client.on('messageCreate', async (message) => {
   if (command === 'ban') {
     if (!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send('Ha, loser trying to use a command that you cant use eah?!! lol');
     let target = message.mentions.user.first()
-    if (!target) {
+    if (target === '') {
       message.channel.send("Please mention a user")
    }else{
       target.ban()
