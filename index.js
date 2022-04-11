@@ -97,10 +97,10 @@ client.on('messageCreate', async (message) => {
     if (!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send('Ha, loser trying to use a command that you cant use eah?!! lol');
     let target = message.mentions.members.first() || message.guild.members.get(args[0])
     if (!target) {
-      message.channel.send("Please mention a user")
+      message.reply({ content: "https://tenor.com/view/perms-no-perms-gif-19925400" })
     } else {
       target.ban()
-      message.channel.send(`${target.username} been banned.`)
+      message.reply({ content: `${target.username} been banned.` })
     }
   }
 
