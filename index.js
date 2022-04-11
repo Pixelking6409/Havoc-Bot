@@ -98,7 +98,7 @@ client.on('messageCreate', async (message) => {
     let target = message.mentions.user.first()
     if (!target) {
       message.channel.send("Please mention a user")
-    } else {
+   }else{
       target.ban()
       message.channel.send(`${target.username} been banned.`)
     }
@@ -235,13 +235,7 @@ client.on('messageCreate', async (message) => {
   if (command === 'resume') {
     guildQueue.setPaused(false);
   }
-  if (command === 'newdabz') {
-    message.channel.send("newdabz is the god 🙏")
-    message.channel.send("the name newdabz was created in 2017 on roblox.com")
-    message.channel.send("the name means (keep in mind that dabing was a 2017 meme), every day each dab would be the a new dab, hence the name 'newdabz'.")
-    message.channel.send("yes its cringe dont ask lmao")
-
-  }
+  
   if (command === 'remove') {
     guildQueue.remove(parseInt(args[0]));
   }
@@ -249,7 +243,7 @@ client.on('messageCreate', async (message) => {
 
   if (command === 'commands') {
     message.channel.send("**Here are a list of commands**")
-    message.channel.send("p, play, playlist, queue, skip, stop, leave, fuckoff, loop, stoploop, queueloop, seek, clearqueue, shuffle, volume, v, nowplaying, np, pause, resume, newdabz, remove, commands")
+    message.channel.send("p, play, playlist, queue, skip, stop, leave, fuckoff, loop, stoploop, queueloop, seek, clearqueue, shuffle, volume, v, nowplaying, np, pause, resume, remove, commands")
     message.channel.send("If you need of think that there should be more commands they ping, PixelIsGarb#8914, or newdabz#5027 !")
   }
 
