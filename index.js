@@ -26,7 +26,7 @@ client.on("ready", () => {
   console.log("Bot Ready!");
   update()
   console.log("MC Server Status Updating!");
-  client.user.setActivity("Sucking on pixels big black furry cock", {
+  client.user.setActivity("pixel suck on big black furry cock", {
     type: "WATCHING"
   })
 });
