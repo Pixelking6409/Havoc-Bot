@@ -244,6 +244,7 @@ client.on('messageCreate', async (message) => {
 
     if (command === 'commands') {
         let commandsEmbed = new MessageEmbed()
+        .setColor("RED")
         .setTitle("Commands")
         .addFields(
             { name: "!p / !play", value: "Used to play a song" },
@@ -261,6 +262,7 @@ client.on('messageCreate', async (message) => {
             { name: "!resume", value: "Used to resure the paused song"},
             { name: "!commands", value: "Used to see all the commands"},
         )
+        .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
     message.channel.send( { embeds: [commandsEmbed] } )
     }
 
