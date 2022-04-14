@@ -247,6 +247,7 @@ client.on('messageCreate', async (message) => {
         .setColor("RED")
         .setTitle("Commands")
         .addFields(
+            { name: "!status", value: "Used to see the status of the minecraft server (to see who is online)."},
             { name: "!p / !play", value: "Used to play a song" },
             { name: "!playlist / !queue", value: "Used to see the queued songs."},
             { name: "!skip", value: "Used to skip the current song."},
