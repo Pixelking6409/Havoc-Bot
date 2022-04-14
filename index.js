@@ -234,6 +234,7 @@ client.on('messageCreate', async (message) => {
 
   if (command === 'resume') {
     guildQueue.setPaused(false);
+    message.channel.send("Music resumed bitch")
   }
 
   if (command === 'remove') {
