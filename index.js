@@ -244,29 +244,34 @@ client.on('messageCreate', async (message) => {
 
     if (command === 'commands') {
         let commandsEmbed = new MessageEmbed()
-        .setColor("RED")
-        .setTitle("Commands")
-        .addFields(
-            { name: "!status", value: "Used to see the status of the minecraft server (to see who is online)."},
-            { name: "!p / !play", value: "Used to play a song" },
-            { name: "!playlist / !queue", value: "Used to see the queued songs."},
-            { name: "!remove", value: "Used to remove a song form the queue / playlist"},
-            { name: "!skip", value: "Used to skip the current song."},
-            { name: "!stop / !fuckoff", value: "Used to stop the song and make the bot leave the channel."},
-            { name: "!loop", value: "Used to loop current song."},
-            { name: "!stoploop", value: "Used to stop the loop."},
-            { name: "!queueloop", value: "Used to loop the queue / playlist"},
-            { name: "!clearqueue", value: "Used to clear the queue / playlist"},
-            { name: "!shffle", value: "Used to shuffle the queue / playlist"},
-            { name: "!v / !volume", value: "Used to turn up the volume"},
-            { name: "!np / !nowplaying", value: "Used to see what the current song playing is."},
-            { name: "!pause", value: "Used to pause the current song"},
-            { name: "!resume", value: "Used to resure the paused song"},
-            { name: "!commands", value: "Used to see all the commands"},
-        )
-        .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
-        .setTimestamp()
-    message.channel.send( { embeds: [commandsEmbed] } )
+            .setColor("RED")
+            .setTitle("Commands")
+            .addFields(
+                { name: "!status", value: "Used to see the status of the minecraft server (to see who is online).", inline: true},
+                { name: "!p / !play", value: "Used to play a song", inline: true },
+                { name: "!playlist / !queue", value: "Used to see the queued songs.", inline: true },
+                { name: '\u200B', value: '\u200B' },
+                { name: "!remove", value: "Used to remove a song form the queue / playlist", inline: true },
+                { name: "!skip", value: "Used to skip the current song.", inline: true },
+                { name: "!stop / !fuckoff", value: "Used to stop the song and make the bot leave the channel.", inline: true },
+                { name: '\u200B', value: '\u200B' },
+                { name: "!loop", value: "Used to loop current song.", inline: true },
+                { name: "!stoploop", value: "Used to stop the loop.", inline: true },
+                { name: "!queueloop", value: "Used to loop the queue / playlist", inline: true },
+                { name: '\u200B', value: '\u200B' },
+                { name: "!clearqueue", value: "Used to clear the queue / playlist", inline: true },
+                { name: "!shffle", value: "Used to shuffle the queue / playlist", inline: true },
+                { name: "!v / !volume", value: "Used to turn up the volume", inline: true },
+                { name: '\u200B', value: '\u200B' },
+                { name: "!np / !nowplaying", value: "Used to see what the current song playing is.", inline: true },
+                { name: "!pause", value: "Used to pause the current song", inline: true },
+                { name: "!resume", value: "Used to resure the paused song", inline: true },
+                { name: '\u200B', value: '\u200B' },
+                { name: "!commands", value: "Used to see all the commands", inline: true },
+            )
+            .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
+            .setTimestamp()
+        message.channel.send( { embeds: [commandsEmbed] } )
     }
 
 
