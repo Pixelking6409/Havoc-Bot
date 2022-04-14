@@ -250,6 +250,7 @@ client.on('messageCreate', async (message) => {
             { name: "!status", value: "Used to see the status of the minecraft server (to see who is online)."},
             { name: "!p / !play", value: "Used to play a song" },
             { name: "!playlist / !queue", value: "Used to see the queued songs."},
+            { name: "!remove", value: "Used to remove a song form the queue / playlist"},
             { name: "!skip", value: "Used to skip the current song."},
             { name: "!stop / !fuckoff", value: "Used to stop the song and make the bot leave the channel."},
             { name: "!loop", value: "Used to loop current song."},
