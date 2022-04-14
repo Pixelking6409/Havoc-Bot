@@ -263,6 +263,7 @@ client.on('messageCreate', async (message) => {
             { name: "!commands", value: "Used to see all the commands"},
         )
         .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
+        .setTimestamp()
     message.channel.send( { embeds: [commandsEmbed] } )
     }
 
