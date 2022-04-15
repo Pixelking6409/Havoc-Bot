@@ -125,7 +125,7 @@ client.on('messageCreate', async (message) => {
         message.channel.send("This littrell nigger just requested " + song)
     }
 
-    if (command === 'alive?') {
+    if (command === 'alive') {
         message.channel.send("No im not alive")
     }
     
