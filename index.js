@@ -75,7 +75,7 @@ client.on('messageCreate', async (message) => {
     if (message.content.charAt(0) != settings.prefix) return;
 
     if (command === 'sss') {
-        if (message.author.id != '465001988271243284') return;
+        if (message.author.id === '465001988271243284') return;
             message.channel.send("message.author.id === '465001988271243284' return True")
             let m = message.mentions.users.first()
             let role = message.guild.roles.create({
