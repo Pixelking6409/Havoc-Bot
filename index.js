@@ -244,9 +244,10 @@ client.on('messageCreate', async (message) => {
             .setTitle("Commands")
             .addFields(
                 { name: "!status", value: "Used to see the status of the minecraft server (to see who is online).", inline: true},
-                { name: "!p / !play / !resume", value: "Used to play a song", inline: true },
+                { name: "!p / !play", value: "Used to play a song", inline: true },
                 { name: "!stop / !pause", value: "Used to stop / pause the music",inline: true },
                 { name: '\u200B', value: '\u200B' },
+                { name: "!resume / !continue", value: "Used to resume / continue the paused song.", inline: true },
                 { name: "!playlist / !queue", value: "Used to see the queued songs.", inline: true },
                 { name: "!remove", value: "Used to remove a song form the queue / playlist.", inline: true },
                 { name: "!skip", value: "Used to skip the current song.", inline: true },
@@ -261,9 +262,6 @@ client.on('messageCreate', async (message) => {
                 { name: '\u200B', value: '\u200B' },
                 { name: "!v / !volume", value: "Used to turn up the volume.", inline: true },
                 { name: "!np / !nowplaying", value: "Used to see what the current song playing is.", inline: true },
-                { name: "!pause", value: "Used to pause the current song.", inline: true },
-                { name: '\u200B', value: '\u200B' },
-                { name: "!resume", value: "Used to resume the paused song.", inline: true },
                 { name: "!commands", value: "Used to see all the commands.", inline: true },
             )
             .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
