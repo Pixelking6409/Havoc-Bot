@@ -193,15 +193,25 @@ client.on('messageCreate', async (message) => {
     }
 
     if (command === 'volume') {
-        if (!args[0]) return message.channel.send("Volume is at " + guildQueue.volume)
-        guildQueue.setVolume(parseInt(args[0]));
-        message.channel.send("Volume set to " + guildQueue.volume)
+        if (!args[0] >= 300) {
+            if (!args[0]) return message.channel.send("Volume is at " + guildQueue.volume)
+            guildQueue.setVolume(parseInt(args[0]));
+            message.channel.send("Volume set to " + guildQueue.volume)
+        }
+        else {
+            message.channel.send("no")
+        }
     }
 
     if (command === 'v') {
-        if (!args[0]) return message.channel.send("Volume is at " + guildQueue.volume)
-        guildQueue.setVolume(parseInt(args[0]));
-        message.channel.send("Volume set to " + guildQueue.volume)
+        if (!args[0] >= 300) {
+            if (!args[0]) return message.channel.send("Volume is at " + guildQueue.volume)
+            guildQueue.setVolume(parseInt(args[0]));
+            message.channel.send("Volume set to " + guildQueue.volume)
+        }
+        else {
+            message.channel.send("no")
+        }
     }
 
     if (command === 'nowplaying') {
@@ -245,12 +255,11 @@ client.on('messageCreate', async (message) => {
             .addFields(
                 { name: "!status", value: "Used to see the status of the minecraft server (to see who is online).", inline: true},
                 { name: "!p / !play", value: "Used to play a song", inline: true },
-                { name: "!stop / !pause", value: "Used to stop / pause the music",inline: true },
+                { name: "!stop / !pause", value: "Used to stop / pause the music", inline: true },
                 { name: '\u200B', value: '\u200B' },
                 { name: "!resume / !continue", value: "Used to resume / continue the paused song.", inline: true },
                 { name: "!playlist / !queue", value: "Used to see the queued songs.", inline: true },
                 { name: "!remove", value: "Used to remove a song form the queue / playlist.", inline: true },
-
                 { name: '\u200B', value: '\u200B' },
                 { name: "!skip", value: "Used to skip the current song.", inline: true },
                 { name: "!leave / !fuckoff", value: "Used to stop the song and make the bot leave the channel.", inline: true },
@@ -259,7 +268,6 @@ client.on('messageCreate', async (message) => {
                 { name: "!stoploop", value: "Used to stop the loop.", inline: true },
                 { name: "!queueloop", value: "Used to loop the queue / playlist.", inline: true },
                 { name: "!clearqueue", value: "Used to clear the queue / playlist.", inline: true },
-
                 { name: '\u200B', value: '\u200B' },
                 { name: "!shffle", value: "Used to shuffle the queue / playlist.", inline: true },
                 { name: "!v / !volume", value: "Used to turn up the volume.", inline: true },
