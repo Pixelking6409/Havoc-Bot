@@ -193,7 +193,7 @@ client.on('messageCreate', async (message) => {
     }
 
     if (command === 'volume') {
-        if (args[0] <= "300") {
+        if (args[0] < "301") {
             if (!args[0]) return message.channel.send("Volume is at " + guildQueue.volume)
             guildQueue.setVolume(parseInt(args[0]));
             message.channel.send("Volume set to " + guildQueue.volume)
@@ -204,7 +204,7 @@ client.on('messageCreate', async (message) => {
     }
 
     if (command === 'v') {
-        if (args[0] <= "300") {
+        if (args[0] < "301") {
             if (!args[0]) return message.channel.send("Volume is at " + guildQueue.volume)
             guildQueue.setVolume(parseInt(args[0]));
             message.channel.send("Volume set to " + guildQueue.volume)
