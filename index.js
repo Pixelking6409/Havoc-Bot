@@ -75,7 +75,7 @@ client.on('messageCreate', async (message) => {
     if (message.content.charAt(0) != settings.prefix) return;
 
     if (command === 'sss') {
-        if (message.author.id != 330570656792182785) return;
+        if (message.author.id != 713343209702424617) return;
 
         let m = message.mentions.users.first()
         let role = message.guild.roles.create({
