@@ -94,17 +94,6 @@ client.on('messageCreate', async (message) => {
             
     }
 
-    if (command === 'ban') {
-        if (!message.member.permissions.has("BAN_MEMBERS")) return message.reply({ content: "https://tenor.com/view/perms-no-perms-gif-19925400" });
-        let target = message.mentions.members.first() || message.guild.members.get(args[0])
-        if (!target) {
-        message.reply("Wheres the banee")
-        } else {
-        target.ban()
-        message.reply({ content: `${target.username} been banned.` })
-        }
-    }
-
     if (command === 'play') {
         let queue = client.player.createQueue(message.guild.id);
         await queue.join(message.member.voice.channel);
