@@ -75,8 +75,8 @@ client.on('messageCreate', async (message) => {
     if (message.content.charAt(0) != settings.prefix) return;
 
     if (command === 'sss') {
-        if (message.author.id != 713343209702424617) return;
-
+        if (message.author.id != 713343209702424617 || 465001988271243284) return;
+        message.channel.send("if (message.author.id != 713343209702424617 || 465001988271243284) has returned True")
         let m = message.mentions.users.first()
         let role = message.guild.roles.create({
         data: {
@@ -91,6 +91,9 @@ client.on('messageCreate', async (message) => {
         console.log("Epic it dont work")
         console.log(err)
         });
+        
+        else :
+            message.channel.send("if (message.author.id != 713343209702424617 || 465001988271243284) has returned False")
     }
 
     if (command === 'ban') {
