@@ -142,7 +142,8 @@ client.on('messageCreate', async (message) => {
     }
 
     if (command === 'stop') {
-        guildQueue.stop();
+        guildQueue.setPaused(true);
+        message.channel.send("Music sopped bitch")
     }
 
     if (command === 'leave') {
