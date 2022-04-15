@@ -199,7 +199,7 @@ client.on('messageCreate', async (message) => {
             message.channel.send("Volume set to " + guildQueue.volume)
         }
         else {
-            message.channel.send("no")
+            message.channel.send("https://tenor.com/view/no-donkeys-shrek-gif-16041065")
         }
     }
 
