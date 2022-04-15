@@ -250,18 +250,21 @@ client.on('messageCreate', async (message) => {
                 { name: "!resume / !continue", value: "Used to resume / continue the paused song.", inline: true },
                 { name: "!playlist / !queue", value: "Used to see the queued songs.", inline: true },
                 { name: "!remove", value: "Used to remove a song form the queue / playlist.", inline: true },
-                { name: "!skip", value: "Used to skip the current song.", inline: true },
+
                 { name: '\u200B', value: '\u200B' },
+                { name: "!skip", value: "Used to skip the current song.", inline: true },
                 { name: "!leave / !fuckoff", value: "Used to stop the song and make the bot leave the channel.", inline: true },
                 { name: "!loop", value: "Used to loop current song.", inline: true },
-                { name: "!stoploop", value: "Used to stop the loop.", inline: true },
                 { name: '\u200B', value: '\u200B' },
+                { name: "!stoploop", value: "Used to stop the loop.", inline: true },
                 { name: "!queueloop", value: "Used to loop the queue / playlist.", inline: true },
                 { name: "!clearqueue", value: "Used to clear the queue / playlist.", inline: true },
-                { name: "!shffle", value: "Used to shuffle the queue / playlist.", inline: true },
+
                 { name: '\u200B', value: '\u200B' },
+                { name: "!shffle", value: "Used to shuffle the queue / playlist.", inline: true },
                 { name: "!v / !volume", value: "Used to turn up the volume.", inline: true },
                 { name: "!np / !nowplaying", value: "Used to see what the current song playing is.", inline: true },
+                { name: '\u200B', value: '\u200B' },
                 { name: "!commands", value: "Used to see all the commands.", inline: true },
             )
             .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
