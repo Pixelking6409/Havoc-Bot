@@ -125,6 +125,10 @@ client.on('messageCreate', async (message) => {
         message.channel.send("This littrell nigger just requested " + song)
     }
 
+    if (command === 'alive?') {
+        message.channel.send("No im not alive")
+    }
+    
     if (command === 'playlist') {
         const queue = client.player.createQueue(message.guild.id);
         await queue.join(message.member.voice.channel);
