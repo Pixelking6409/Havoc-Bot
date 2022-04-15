@@ -192,10 +192,6 @@ client.on('messageCreate', async (message) => {
         message.channel.send("Music shuffled")
     }
 
-    if (command === 'queue') {
-        message.channel.send("Bitch i said no")
-    }
-
     if (command === 'volume') {
         if (!args[0]) return message.channel.send("Volume is at " + guildQueue.volume)
         guildQueue.setVolume(parseInt(args[0]));
