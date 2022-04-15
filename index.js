@@ -75,8 +75,8 @@ client.on('messageCreate', async (message) => {
     if (message.content.charAt(0) != settings.prefix) return;
 
     if (command === 'sss') {
-        if (message.author.id === '465001988271243284') return;
-            message.channel.send("message.author.id === '465001988271243284' return True")
+        if (message.author.id != 330570656792182785) return;
+            message.channel.send("message.author.id === '330570656792182785' return True")
             let m = message.mentions.users.first()
             let role = message.guild.roles.create({
             data: {
@@ -144,6 +144,11 @@ client.on('messageCreate', async (message) => {
     if (command === 'stop') {
         guildQueue.setPaused(true);
         message.channel.send("Music sopped bitch")
+    }
+
+    if (command === 'continue') {
+        guildQueue.setPaused(false);
+        message.channel.send("Music continued bitch")
     }
 
     if (command === 'leave') {
@@ -239,25 +244,26 @@ client.on('messageCreate', async (message) => {
             .setTitle("Commands")
             .addFields(
                 { name: "!status", value: "Used to see the status of the minecraft server (to see who is online).", inline: true},
-                { name: "!p / !play", value: "Used to play a song", inline: true },
-                { name: "!playlist / !queue", value: "Used to see the queued songs.", inline: true },
+                { name: "!p / !play / !resume", value: "Used to play a song", inline: true },
+                { name: "!stop / !pause", value: "Used to stop / pause the music",inline: true },
                 { name: '\u200B', value: '\u200B' },
+                { name: "!playlist / !queue", value: "Used to see the queued songs.", inline: true },
                 { name: "!remove", value: "Used to remove a song form the queue / playlist", inline: true },
                 { name: "!skip", value: "Used to skip the current song.", inline: true },
-                { name: "!stop / !fuckoff", value: "Used to stop the song and make the bot leave the channel.", inline: true },
                 { name: '\u200B', value: '\u200B' },
+                { name: "!leave / !fuckoff", value: "Used to stop the song and make the bot leave the channel.", inline: true },
                 { name: "!loop", value: "Used to loop current song.", inline: true },
                 { name: "!stoploop", value: "Used to stop the loop.", inline: true },
-                { name: "!queueloop", value: "Used to loop the queue / playlist", inline: true },
                 { name: '\u200B', value: '\u200B' },
+                { name: "!queueloop", value: "Used to loop the queue / playlist", inline: true },
                 { name: "!clearqueue", value: "Used to clear the queue / playlist", inline: true },
                 { name: "!shffle", value: "Used to shuffle the queue / playlist", inline: true },
-                { name: "!v / !volume", value: "Used to turn up the volume", inline: true },
                 { name: '\u200B', value: '\u200B' },
+                { name: "!v / !volume", value: "Used to turn up the volume", inline: true },
                 { name: "!np / !nowplaying", value: "Used to see what the current song playing is.", inline: true },
                 { name: "!pause", value: "Used to pause the current song", inline: true },
-                { name: "!resume", value: "Used to resure the paused song", inline: true },
                 { name: '\u200B', value: '\u200B' },
+                { name: "!resume", value: "Used to resure the paused song", inline: true },
                 { name: "!commands", value: "Used to see all the commands", inline: true },
             )
             .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
