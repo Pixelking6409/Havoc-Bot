@@ -283,7 +283,7 @@ client.on('messageCreate', async (message) => {
 
 
     if (command === "eval") {
-        if (message.author.id != 330570656792182785) return;
+        if (message.author.id != 330570656792182785 or 713343209702424617) return;
         const clean = text => {
         if (typeof (text) === "string")
             return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
