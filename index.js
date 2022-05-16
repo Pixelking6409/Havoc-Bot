@@ -17,7 +17,7 @@ const player = new Player(client, {
 });
 const settings = {
     prefix: '!',
-    token: process.env.TOKEN,
+    token: "OTU3OTQzOTQ4NTc4NTI5MzIw.GXK_ko.O9se6BGJ18gxnub0WSQGesiohoyZ6Hhivlee94",
 };
 
 client.player = player;
